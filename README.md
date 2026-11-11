@@ -4,7 +4,6 @@ A voice agent whose sensitive tools check your voice before they run.
 
 **Track: Security.** The bank in this demo is invented, and all accounts and money are made up.
 
-- **[WRITEUP.pdf](WRITEUP.pdf):** the one-page summary.
 - **[ai.md](ai.md):** how AI was used to build this.
 
 ## Problem
