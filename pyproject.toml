@@ -1,0 +1,36 @@
+[project]
+name = "prove-it"
+version = "0.1.0"
+description = "Voice agent whose sensitive tools check the caller's voice before running"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "pipecat-ai[webrtc,openai,cartesia]==1.15.0",
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.30",
+  "python-multipart>=0.0.9",
+  "python-dotenv>=1.0",
+  "truststore>=0.10",
+  "numpy>=1.26,<2.3",
+  "soundfile>=0.12",
+  "soxr>=0.5",
+  "torch==2.8.0",
+  "torchaudio==2.8.0",
+  "speechbrain==1.1.2",
+  "transformers>=4.46,<5",
+  "einops>=0.8",  # needed by DF Arena's model code
+  "faster-whisper>=1.1",
+  "huggingface-hub>=0.25",
+]
+
+[dependency-groups]
+dev = ["pytest>=8", "pytest-asyncio>=0.24"]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+markers = ["slow: loads the real voice models"]
+addopts = "-m 'not slow'"
